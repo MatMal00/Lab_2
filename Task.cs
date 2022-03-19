@@ -12,7 +12,7 @@ namespace Lab_2
         Rejected
     }
 
-    class Task
+    class Task: IEquatable<Task>
     {
         private string name;
         private TaskStatus status;
@@ -26,7 +26,7 @@ namespace Lab_2
             this.status = status;
         }
 
-        public bool Equals(Task other)
+        public bool Equals(Task other = null)
         {
             if (other == null) return false;
 
@@ -35,5 +35,7 @@ namespace Lab_2
             else
                 return false;
         }
+
+        public override string ToString() => $"Task {name} [{status}]";
     }
 }
